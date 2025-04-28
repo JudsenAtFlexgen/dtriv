@@ -63,7 +63,7 @@ func main() {
 
 		var buf bytes.Buffer
 		style := fmt.Sprintf("color:#%s;border:1px solid #%s;border-radius:0.25rem;padding:1rem;", hexString, hexString)
-		component := trivia.Question(style, "Wowzers")
+		component := trivia.Question(style, "Wowzers", []string{"This is a test", "This is a second test"})
 		err := renderStr(component, &buf)
 		if err != nil {
 			panic("ohno")

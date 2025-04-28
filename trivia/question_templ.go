@@ -8,7 +8,7 @@ package trivia
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func Question(style string, content string) templ.Component {
+func Question(style string, content string, items []string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -29,7 +29,7 @@ func Question(style string, content string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"test\" class=\"bg-white  p-6 rounded-lg shadow-lg\"><button id=\"test_button\" data-on-click=\"@get(&#39;/test&#39;)\" style=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div id=\"test\" class=\"bg-white border border-black flex flex-col justify-center\"><button id=\"test_button\" data-on-click=\"@get(&#39;/test&#39;)\" style=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -55,7 +55,30 @@ func Question(style string, content string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</button><table><caption class=\"text-sm text-accent-300\">Select Rows And Activate Or Deactivate Below</caption> <tbody><tr id=\"contact_0\" class=\"\"><td class=\"flex items-center justify-center\"><input class=\"checkbox\" type=\"checkbox\" data-bind=\"selections.contact_0\" id=\"datastarjum4kx\"></td><td>Joe Smith</td><td>joe@smith.org</td><td>Inactive</td></tr><tr id=\"contact_1\" class=\"\"><td class=\"flex items-center justify-center\"><input class=\"checkbox\" type=\"checkbox\" data-bind=\"selections.contact_1\" id=\"datastarjum4ky\"></td><td>Angie MacDowell</td><td>angie@macdowell.org</td><td>Inactive</td></tr></tbody></table></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</button><table><caption class=\"text-sm text-accent-300\">Select Rows And Activate Or Deactivate Below</caption> <tbody>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		for _, item := range items {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<tr><td class=\"flex items-center justify-center\"><input class=\"checkbox\" type=\"checkbox\" data-bind=\"selections.contact_0\" id=\"datastarjum4kx\"></td><td>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var4 string
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(item)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `trivia/question.templ`, Line: 16, Col: 15}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</td></tr>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</tbody></table></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
