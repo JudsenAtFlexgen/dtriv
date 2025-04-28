@@ -1,0 +1,30 @@
+package trivia
+
+templ Question(style string, content string) {
+	<div id="test" class="bg-white">
+		<button id="test_button" data-on-click="@get('/test')" style={ style }>
+			{ content }
+		</button>
+		<table>
+			<caption class="text-sm text-accent-300">Select Rows And Activate Or Deactivate Below</caption>
+			<tbody>
+				<tr id="contact_0" class="">
+					<td class="flex items-center justify-center">
+						<input class="checkbox" type="checkbox" data-bind="selections.contact_0" id="datastarjum4kx"/>
+					</td>
+					<td>Joe Smith</td>
+					<td>joe@smith.org</td>
+					<td>Inactive</td>
+				</tr>
+				<tr id="contact_1" class="">
+					<td class="flex items-center justify-center">
+						<input class="checkbox" type="checkbox" data-bind="selections.contact_1" id="datastarjum4ky"/>
+					</td>
+					<td>Angie MacDowell</td>
+					<td>angie@macdowell.org</td>
+					<td>Inactive</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+}

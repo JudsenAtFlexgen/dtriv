@@ -1,0 +1,12 @@
+<div class="question">
+  <h2 class="text-2xl mb-4">{{ .Quest }}</h2>
+  <ul class="space-y-2">
+    {{ range $index, $opt := .Opts }}
+      <li>
+        <button class="bg-blue-500 text-white py-2 px-4 rounded">
+          {{ $opt }}
+        </button>
+      </li>
+    {{ end }}
+  </ul>
+</div>
